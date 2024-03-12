@@ -14,6 +14,4 @@ jobs:
       - name: Check Go Version
         run: go version
       - name: Build application
-        run: make build
-      - name: List dist output
-        run: ls dist/
+        run: make all
