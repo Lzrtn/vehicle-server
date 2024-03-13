@@ -18,5 +18,7 @@ jobs:
         run: make unit_test
       - name: Integration Test
         run: make integration_test
+      - name: packages
+        run: make packages
       - name: Build application
         run: make all
