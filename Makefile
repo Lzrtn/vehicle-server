@@ -55,4 +55,4 @@ TAG?=dev
 
 .PHONY: package
 package:
-  docker build -t $(IMAGE):$(TAG) .
+	docker build -t $(IMAGE):$(TAG) .
