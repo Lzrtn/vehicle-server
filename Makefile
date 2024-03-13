@@ -1,5 +1,5 @@
 .PHONY: all
-all: clean dist build package
+all: clean dist build package release
 
 .PHONY: clean
 clean:
@@ -50,9 +50,16 @@ dev_db:
 stop_dev_db:
 	docker container stop $(DB_CONTAINER_NAME)
 
-IMAGE?=Lzrtn/vehicle-server
+IMAGE?=lzrtn/vehicle-server
 TAG?=dev
 
 .PHONY: package
 package:
 	docker build -t $(IMAGE):$(TAG) .
+
+.PHONY: release
+release:
+#	git tag $(TAG) -m "$(TAG_MESSAGE)"
+#	git push $(TAG)
+	docker push $(IMAGE):$(TAG)
+	
