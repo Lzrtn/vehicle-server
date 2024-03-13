@@ -1,6 +1,7 @@
 name: Vehicle Server CI
 on:
   - push
+  - pull_request
 jobs:
   ci:
     runs-on: ubuntu-22.04
@@ -13,5 +14,9 @@ jobs:
           go-version-file: './go.mod'
       - name: Check Go Version
         run: go version
+      - name: Unit Test
+        run: make unit_test
+      - name: Integration Test
+        run: make integration_test
       - name: Build application
         run: make all
