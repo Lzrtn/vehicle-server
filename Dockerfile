@@ -1,0 +1,9 @@
+# FROM golang:1.22
+# COPY ./ /app
+# WORKDIR /app
+# RUN make all
+# ENTRYPOINT ["/app/dist/server"]
+
+FROM gcr.io/distroless/static-debian12
+COPY dist/server /app/server
+ENTRYPOINT ["/app/server"]

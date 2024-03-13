@@ -1,5 +1,5 @@
 .PHONY: all
-all: clean dist build
+all: clean dist build package
 
 .PHONY: clean
 clean:
@@ -49,3 +49,10 @@ dev_db:
 .PHONY: stop_dev_db
 stop_dev_db:
 	docker container stop $(DB_CONTAINER_NAME)
+
+IMAGE?=Lzrtn/vehicle-server
+TAG?=dev
+
+.PHONY: package
+package:
+  docker build -t $(IMAGE):$(TAG) .
