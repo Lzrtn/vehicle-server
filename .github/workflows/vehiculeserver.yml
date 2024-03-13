@@ -19,6 +19,6 @@ jobs:
       - name: Integration Test
         run: make integration_test
       - name: packages
-        run: make packages
+        run: make package
       - name: Build application
         run: make all
